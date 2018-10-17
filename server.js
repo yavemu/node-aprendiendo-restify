@@ -18,16 +18,23 @@ server
 
 // Conexion DB
 mongoose.connect(process.env.URLDB, (err, res) => {
-    if (err) throw err
-
+    if (err) {
+        console.log('+++++++++++++++++++++++++++++++++++++++++');
+        console.log('Base de datos: OFFLINE', );
+        console.log('+++++++++++++++++++++++++++++++++++++++++');
+        throw err
+    }
+    console.log('********************************************');
     console.log('Base de datos: ONLINE', );
-
+    console.log('********************************************');
 });
 
 // Configuracion del Servidor
 server.listen(process.env.PORT, 'localhost', () => {
+    console.log('********************************************');
     console.log('Servidor encendido: ', server.url);
     console.log('Escuchando puerto: ', process.env.PORT);
+    console.log('********************************************');
 });
 
 // ================================================================
